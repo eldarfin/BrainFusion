@@ -1,0 +1,13 @@
+package csgame;
+
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+/**
+ * Created by berkay on 19.04.2015.
+ */
+public class GameMouseAdapter extends MouseAdapter {
+    public void keyPressed(MouseEvent e){
+        super.mousePressed(e);
+    }
+}
