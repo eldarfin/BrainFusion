@@ -1,10 +1,6 @@
-/**
- * 
- */
-package Play;
 
 /**
- * @author Selin
+ * @author selinfildis
  *
  */
 public class MathGenerator {
