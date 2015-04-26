@@ -1,14 +1,59 @@
 package csgame;
 
-import java.io.File;
-import java.io.Serializable;
+import java.io.*;
 
 /**
- * Created by berkay on 19.04.2015.
+ * Created by Eldarfin on 26.04.2015.
  */
-public class TextReader implements Serializable{
+public class TxtReader implements Serializable{
+    String question;
+    String answer;
+    int qNum;
+    File myFile;
+    File playerData;
 
-    public String[][] fillBoard(String[][] board, File file) {
-        return board;
+
+    TxtReader(){
+        question = "";
+        answer = "";
+        qNum = 1;
+        myFile = new File("c:/Users/Eldarfin/IdeaProjects/questions");
+        playerData = new File("c:/Users/Eldarfin/IdeaProjects/player1");
     }
+
+    public void readQuestion() throws IOException{
+        String data = "";
+        String tmp = "";
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(myFile));
+
+            int value = 0;
+            while((value = br.read()) != -1 ){
+                char c = (char)value;
+                data = data + c;
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        for(int i = 0 ; i < data.length() ; i++){
+            char c = (char) qNum;
+            if(data.charAt(i) == c){
+                int k = i+4;
+                while(data.charAt(k) != ']'){
+                    tmp = tmp + data.charAt(k);
+                }
+                break;
+            }
+        }
+
+        question = tmp;
+
+    }
+
+    public String getQuestion(){
+        return question;
+    }
+
 }
+
