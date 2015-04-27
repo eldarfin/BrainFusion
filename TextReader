@@ -1,5 +1,7 @@
 package csgame;
 
+
+
 import java.io.*;
 
 /**
@@ -22,32 +24,17 @@ public class TxtReader implements Serializable{
     }
 
     public void readQuestion() throws IOException{
-        String data = "";
-        String tmp = "";
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(myFile));
 
-            int value = 0;
-            while((value = br.read()) != -1 ){
-                char c = (char)value;
-                data = data + c;
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        for(int i = 0 ; i < data.length() ; i++){
-            char c = (char) qNum;
-            if(data.charAt(i) == c){
-                int k = i+4;
-                while(data.charAt(k) != ']'){
-                    tmp = tmp + data.charAt(k);
+        try(LineNumberReader lnr = new LineNumberReader(new FileReader(myFile))){
+            StringBuffer sb = new StringBuffer();
+            for(String line = null; (line = lnr.readLine()) != null ;){
+                if(lnr.getLineNumber() == qNum){
+                    sb.append(line).append(File.pathSeparatorChar);
                 }
-                break;
             }
+            question = sb.toString();
+            question = question.substring(3,question.length()-2);
         }
-
-        question = tmp;
 
     }
 
@@ -56,4 +43,6 @@ public class TxtReader implements Serializable{
     }
 
 }
+
+
 
