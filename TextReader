@@ -15,14 +15,15 @@ public class TxtReader implements Serializable{
         question = "";
         answer = "";
         qNum = 1;
-        questionFile = new File("c:/Users/Eldarfin/IdeaProjects/questions");
-        answerFile = new File("c:/Users/Eldarfin/IdeaProjects/answers");
-        playerData = new File("c:/Users/Eldarfin/IdeaProjects/player1");
+        questionFile = new File("c:/Users/Eldarfin/IdeaProjects/questions.txt");
+        answerFile = new File("c:/Users/Eldarfin/IdeaProjects/answers.txt");
+        playerData = new File("c:/Users/Eldarfin/IdeaProjects/player1.txt");
     }
 
     public void readQuestion() throws IOException{
 
-        try(LineNumberReader lnr = new LineNumberReader(new FileReader(questionFile))){
+        try{
+            LineNumberReader lnr = new LineNumberReader(new FileReader(questionFile));
             StringBuffer sb = new StringBuffer();
             for(String line = null; (line = lnr.readLine()) != null ;){
                 if(lnr.getLineNumber() == qNum){
@@ -31,6 +32,8 @@ public class TxtReader implements Serializable{
             }
             question = sb.toString();
             question = question.substring(3,question.length()-2);
+        }catch (FileNotFoundException e){
+            e.printStackTrace();
         }
 
     }
