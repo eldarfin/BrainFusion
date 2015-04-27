@@ -1,31 +1,28 @@
-package csgame;
-
-
-
 import java.io.*;
 
 /**
  * Created by Eldarfin on 26.04.2015.
  */
 public class TxtReader implements Serializable{
-    String question;
-    String answer;
+
+    //Properties
     int qNum;
-    File myFile;
-    File playerData;
+    String question, answer;
+    File questionFile, playerData, answerFile;
 
 
     TxtReader(){
         question = "";
         answer = "";
         qNum = 1;
-        myFile = new File("c:/Users/Eldarfin/IdeaProjects/questions");
+        questionFile = new File("c:/Users/Eldarfin/IdeaProjects/questions");
+        answerFile = new File("c:/Users/Eldarfin/IdeaProjects/answers")
         playerData = new File("c:/Users/Eldarfin/IdeaProjects/player1");
     }
 
     public void readQuestion() throws IOException{
 
-        try(LineNumberReader lnr = new LineNumberReader(new FileReader(myFile))){
+        try(LineNumberReader lnr = new LineNumberReader(new FileReader(questionFile))){
             StringBuffer sb = new StringBuffer();
             for(String line = null; (line = lnr.readLine()) != null ;){
                 if(lnr.getLineNumber() == qNum){
@@ -43,6 +40,3 @@ public class TxtReader implements Serializable{
     }
 
 }
-
-
-
