@@ -16,7 +16,7 @@ public class TxtReader implements Serializable{
         answer = "";
         qNum = 1;
         questionFile = new File("c:/Users/Eldarfin/IdeaProjects/questions");
-        answerFile = new File("c:/Users/Eldarfin/IdeaProjects/answers")
+        answerFile = new File("c:/Users/Eldarfin/IdeaProjects/answers");
         playerData = new File("c:/Users/Eldarfin/IdeaProjects/player1");
     }
 
