@@ -1,0 +1,10 @@
+
+public interface Play {
+	
+	public Object getAnswer();
+	public void setAnswer(Object o);
+	public Object getQuestion();
+	public void setQuestion(Object o);
+	public boolean isTrue();
+	public void getUserInput();
+}
