@@ -14,13 +14,13 @@ public class TxtReader implements Serializable{
     TxtReader(){
         question = "";
         answer = "";
-        qNum = 1;
+        qNum = 3;
         questionFile = new File("c:/Users/Eldarfin/IdeaProjects/questions.txt");
         answerFile = new File("c:/Users/Eldarfin/IdeaProjects/answers.txt");
         playerData = new File("c:/Users/Eldarfin/IdeaProjects/player1.txt");
     }
 
-    public void readQuestion() throws IOException{
+    public String readQuestion() throws IOException{
 
         try{
             LineNumberReader lnr = new LineNumberReader(new FileReader(questionFile));
@@ -31,15 +31,75 @@ public class TxtReader implements Serializable{
                 }
             }
             question = sb.toString();
-            question = question.substring(3,question.length()-2);
+            question = question.substring(2,question.length()-1);
         }catch (FileNotFoundException e){
             e.printStackTrace();
         }
-
-    }
-
-    public String getQuestion(){
         return question;
     }
 
+    public String readAnswer() throws IOException{
+
+        try{
+            LineNumberReader lnr = new LineNumberReader(new FileReader(answerFile));
+            StringBuffer sb = new StringBuffer();
+            for(String line = null; (line = lnr.readLine()) != null ;){
+                if(lnr.getLineNumber() == qNum){
+                    sb.append(line).append(File.pathSeparatorChar);
+                }
+            }
+            answer = sb.toString();
+            answer = answer.substring(2,answer.length()-1);
+        }catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
+        return answer;
+    }
+
+    public void fillBoard(String[][] board){
+
+        int count = 0;
+        String[] pieces = new String[32];
+        String temp = "";
+
+            for(int i = 3; i < question.length(); i++){
+                if(question.charAt(i) != '/'){
+                    temp = temp + question.charAt(i);
+                }
+                else if(question.charAt(i) == '/'){
+                    pieces[count] = temp;
+                    temp = "";
+                    count++;
+                }
+            }
+
+        for (int j = 0 ; j < count ; j++){
+            System.out.println(pieces[j]);
+        }
+
+
+
+    }
+
+    public int getqNum() {
+        return qNum;
+    }
+
+    public void setqNum(int qNum) {
+        this.qNum = qNum;
+    }
+
+    public String getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(String question) { this.question = question; }
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
 }
