@@ -1,56 +1,60 @@
-import MathGenerator;
+package com.brainfusion.eldarfin.brainfusion;
+
+/**
+ * Created by Selin on 30.04.2015.
+ */
 public class MathPlay implements Play {
 
-	MathGenerator generator;
-	public MathPlay()
-	{
-		generator = new MathGenerator();
-	}
-	@Override
-	public Object getAnswer() {
-		return generator.returnAnswer();
-	}
+    MathGenerator generator;
+    public MathPlay()
+    {
+        generator = new MathGenerator();
+    }
+    @Override
+    public Object getAnswer() {
+        return generator.returnAnswer(getUserInput());
+    }
 
-	@Override
-	public void setAnswer(Object o) {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void setAnswer(Object o) {
+        // TODO Auto-generated method stub
 
-	@Override
-	public Object getQuestion(int state) {
-		// TODO Auto-generated method stub
-		if(state == 0)
-			return generator.operationGeneratorEasy();
-		else if(state == 1)
-			return generator.operationGeneratorMedium();
-		else if(state == 2)
-			return generator.operationGeneratorHard();
-		return generator.operationGeneratorExtreme();
-	}
-	@Override
-	public boolean isTrue() {
-		if(getAnswer() == getUserInput())
-			return true;
-		return false;
-	}
-	
-	
-	@Override
-	public void setQuestion(Object o) {
-		// TODO Auto-generated method stub
-		
-	}
+    }
 
-	@Override
-	public Object getUserInput() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	@Override
-	public Object getQuestion() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public Object getQuestion(int state) {
+        // TODO Auto-generated method stub
+        if(state == 0)
+            return generator.operationGeneratorEasy();
+        else if(state == 1)
+            return generator.operationGeneratorMedium();
+        else if(state == 2)
+            return generator.operationGeneratorHard();
+        return generator.operationGeneratorExtreme();
+    }
+    @Override
+    public boolean isTrue() {
+        if(getAnswer() == getUserInput())
+            return true;
+        return false;
+    }
+
+
+    @Override
+    public void setQuestion(Object o) {
+
+
+    }
+
+    @Override
+    public Object getUserInput() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+    @Override
+    public Object getQuestion() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
 }
