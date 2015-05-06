@@ -1,11 +1,11 @@
-package csgame;
+package com.brainfusion.eldarfin.brainfusion;
 
 import java.io.File;
 
 /**
- * Created by berkay on 19.04.2015.
+ * Created by Eldarfin on 30.04.2015.
  */
-public class ChessPlay {
+public class ChessPlay implements Play{
 
     //Constants
     private final String W_PAWN = "wp";
@@ -26,14 +26,47 @@ public class ChessPlay {
     private String[][] board;
     private TextReader reader;
 
-    public ChessGame(File file){
+    public ChessPlay(File file){
 
         reader = new TextReader();
 
         board = new String[8][8];
 
-        board = reader.fillBoard(board, file);
+        //board = reader.fillBoard(board, file);
     }
 
+    @Override
+    public Object getAnswer() {
+        return null;
+    }
 
+    @Override
+    public void setAnswer(Object o) {
+
+    }
+
+    @Override
+    public Object getQuestion() {
+        return null;
+    }
+
+    @Override
+    public void setQuestion(Object o) {
+
+    }
+
+    @Override
+    public boolean isTrue() {
+        return false;
+    }
+
+    @Override
+    public Object getUserInput() {
+        return null;
+    }
+
+    @Override
+    public Object getQuestion(int state) {
+        return null;
+    }
 }
