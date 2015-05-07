@@ -1,0 +1,58 @@
+import java.io.IOException;
+
+
+public class RiddlePlay{
+
+	TextReader tr;
+	Object question,
+		     answer,
+		     userInput;
+	
+	
+	RiddlePlay()
+	{
+		tr = new TextReader();
+		question = null;
+		answer = null;
+		userInput = null;
+	}
+	
+	public Object getAnswer() throws IOException {
+		// TODO Auto-generated method stub
+		return answer;
+	}
+
+	
+	public void setAnswer() {
+		// TODO Auto-generated method stub
+		answer = tr.getAnswer();
+	}
+
+	
+	public Object getQuestion() {
+		// TODO Auto-generated method stub
+		return question;
+	}
+
+	
+	public void setQuestion() {
+		// TODO Auto-generated method stub
+		question = tr.getQuestion();
+	}
+
+	
+	public boolean isTrue() {
+		// TODO Auto-generated method stub
+		return answer == userInput;
+	}
+
+
+	public Object getUserInput() {
+		// TODO Auto-generated method stub
+		//Read UserInput somehow. and equal it to userInput.
+		return userInput;
+	}
+
+	
+	
+}
