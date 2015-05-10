@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">BrainFusion</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_level">LevelActivity</string>
+    <string name="title_activity_load">LoadActivity</string>
+    <string name="title_activity_credits">CreditsActivity</string>
+    <string name="title_activity_how_to">HowToActivity</string>
+    <string name="title_activity_chess_how_to">ChessHowToActivity</string>
+    <string name="title_activity_math_how_to">MathHowToActivity</string>
+    <string name="title_activity_riddle_how_to">RiddleHowToActivity</string>
+    <string name="title_activity_play">PlayActivity</string>
+</resources>
