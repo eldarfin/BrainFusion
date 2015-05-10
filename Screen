@@ -1,0 +1,11 @@
+package com.brainfusion.eldarfin.brainfusion;
+
+/**
+ * Created by Eldarfin on 30.04.2015.
+ */
+public interface Screen{
+    public void paint();//Paints the screen
+    public void update();//Updates the content in the screen
+    public  void dispose();//Closes the screen
+    public void show();//Shows the closed screen
+}
