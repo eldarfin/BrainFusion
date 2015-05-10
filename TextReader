@@ -1,105 +1,169 @@
-import java.io.*;
 
+package com.brainfusion.eldarfin.brainfusion;
+ 
+/**
+ * Created by Can on 8.5.2015.
+ */
+import java.io.*;
+ 
 /**
  * Created by Eldarfin on 26.04.2015.
  */
-public class TextReader implements Serializable{
-
+public class TextReader{
+ 
     //Properties
     int qNum;
     String question, answer;
     File questionFile, playerData, answerFile;
-
-
-    TxtReader(){
+ 
+ 
+    TextReader(){
         question = "";
         answer = "";
-        qNum = 3;
-        questionFile = new File("c:/Users/Eldarfin/IdeaProjects/questions.txt");
-        answerFile = new File("c:/Users/Eldarfin/IdeaProjects/answers.txt");
-        playerData = new File("c:/Users/Eldarfin/IdeaProjects/player1.txt");
-    }
-
-    public String readQuestion() throws IOException{
-
-        try{
-            LineNumberReader lnr = new LineNumberReader(new FileReader(questionFile));
-            StringBuffer sb = new StringBuffer();
-            for(String line = null; (line = lnr.readLine()) != null ;){
-                if(lnr.getLineNumber() == qNum){
-                    sb.append(line).append(File.pathSeparatorChar);
+        qNum = 1;
+        questionFile = new File("questions.txt");
+        answerFile = new File("answers.txt");
+        playerData = new File("player_data.txt");
+ 
+ 
+}
+ 
+    public void readQuestion() throws IOException{
+ 
+        StringBuilder text = new StringBuilder();
+ 
+        try {
+            InputStream in = new FileInputStream("txtfiles/questions.txt");
+ 
+            InputStreamReader isr = new InputStreamReader(in);
+            BufferedReader br = new BufferedReader(isr);
+ 
+            String line = null;
+            int count = 0;
+ 
+            do {
+                line = br.readLine();
+                count++;
+ 
+                if(count == qNum){
+                    text.append(line).append(File.pathSeparatorChar);
                 }
-            }
-            question = sb.toString();
-            question = question.substring(2,question.length()-1);
-        }catch (FileNotFoundException e){
+ 
+            } while (line != null);
+ 
+            question = text.toString();
+            question = question.substring(2, question.length()-1);
+        }catch (IOException e){
             e.printStackTrace();
         }
-        return question;
     }
-
-    public String readAnswer() throws IOException{
-
-        try{
-            LineNumberReader lnr = new LineNumberReader(new FileReader(answerFile));
-            StringBuffer sb = new StringBuffer();
-            for(String line = null; (line = lnr.readLine()) != null ;){
-                if(lnr.getLineNumber() == qNum){
-                    sb.append(line).append(File.pathSeparatorChar);
+ 
+    public void readAnswer() throws IOException{
+ 
+        StringBuilder text = new StringBuilder();
+ 
+        try {
+            InputStream in = new FileInputStream(answerFile);
+ 
+            InputStreamReader isr = new InputStreamReader(in);
+            BufferedReader br = new BufferedReader(isr);
+ 
+            String line = null;
+            int count = 0;
+ 
+            do {
+                line = br.readLine();
+                count++;
+ 
+                if(count == qNum){
+                    text.append(line).append(File.pathSeparatorChar);
                 }
-            }
-            answer = sb.toString();
-            answer = answer.substring(2,answer.length()-1);
-        }catch (FileNotFoundException e){
+ 
+            } while (line != null);
+ 
+            answer = text.toString();
+            answer = answer.substring(2, question.length()-1);
+        }catch (IOException e){
             e.printStackTrace();
         }
-        return answer;
+ 
     }
-
-    public void fillBoard(String[][] board){
-
+ 
+    public String[][] fillBoard(String[][] board){
         int count = 0;
         String[] pieces = new String[32];
         String temp = "";
-
-            for(int i = 3; i < question.length(); i++){
-                if(question.charAt(i) != '/'){
-                    temp = temp + question.charAt(i);
-                }
-                else if(question.charAt(i) == '/'){
-                    pieces[count] = temp;
-                    temp = "";
-                    count++;
-                }
+        for(int i = 0; i < question.length(); i++){
+            if(question.charAt(i) != '/'){
+                temp = temp + question.charAt(i);
+ 
             }
-
-        for (int j = 0 ; j < count ; j++){
-            System.out.println(pieces[j]);
+            else if(question.charAt(i) == '/' ){
+                pieces[count] = temp;
+                temp = "";
+                count++;
+            }
         }
-
-
-
+        for (int j = 0 ; j < count ; j++){
+ 
+            int rowNo=Integer.parseInt(pieces[j].charAt(1)+"")-1;
+            int colNo=getColNo(pieces[j]);
+            board[rowNo][colNo]=pieces[j].substring(3);
+ 
+ 
+        }
+        return board;
     }
-
+ 
     public int getqNum() {
         return qNum;
     }
-
+ 
     public void setqNum(int qNum) {
         this.qNum = qNum;
     }
-
+ 
     public String getQuestion() {
         return question;
     }
-
+ 
     public void setQuestion(String question) { this.question = question; }
-
+ 
     public String getAnswer() {
         return answer;
     }
-
+ 
     public void setAnswer(String answer) {
         this.answer = answer;
+    }
+ 
+ 
+ 
+ 
+    private int getColNo(String string) {
+        if(string.charAt(0)=='a'){
+            return 0;
+        }
+        else if(string.charAt(0)=='b'){
+            return 1;
+        }
+        else if(string.charAt(0)=='c'){
+            return 2;
+        }
+        else if(string.charAt(0)=='d'){
+            return 3;
+        }
+        else if(string.charAt(0)=='e'){
+            return 4;
+        }
+        else if(string.charAt(0)=='f'){
+            return 5;
+        }
+        else if(string.charAt(0)=='g'){
+            return 6;
+        }
+        else {
+            return 7;
+        }
     }
 }
