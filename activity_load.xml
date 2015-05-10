@@ -1,0 +1,47 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.brainfusion.eldarfin.brainfusion.LoadActivity"
+    android:background="@drawable/play">
+
+
+    <ImageButton
+        android:layout_width="250dp"
+        android:layout_height="81dp"
+        android:id="@+id/imageButton5"
+        android:src="@drawable/redbuttonanimation"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:onClick="directToLevel"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="New Game"
+        android:id="@+id/textView5"
+        android:textSize="34dp"
+        android:layout_alignBottom="@+id/imageButton5"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp" />
+
+    <ImageButton
+        android:layout_width="250dp"
+        android:layout_height="81dp"
+        android:id="@+id/imageButton6"
+        android:layout_below="@+id/textView5"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/cyanbuttonanimation"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Load Game"
+        android:id="@+id/textView6"
+        android:layout_below="@+id/imageButton5"
+        android:layout_centerHorizontal="true"
+        android:textSize="34dp" />
+</RelativeLayout>
