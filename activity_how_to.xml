@@ -1,0 +1,73 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/myLayout"
+    tools:context="com.brainfusion.eldarfin.brainfusion.HowToActivity"
+    android:background="#ff65ff94">
+
+    <ImageButton
+        android:layout_width="200dp"
+        android:layout_height="66dp"
+        android:id="@+id/ChessButton"
+        android:layout_marginTop="133dp"
+        android:src="@drawable/cyanbuttonanimation"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="directToChessHowTo"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="How To Play Chess"
+        android:id="@+id/textView7"
+        android:textSize="20dp"
+        android:layout_alignBottom="@+id/ChessButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="18dp" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton7"
+        android:layout_below="@+id/ChessButton"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/pinkbuttonanimation"
+        android:onClick="directToRiddleHowTo"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton8"
+        android:background="@drawable/purplebuttonanimation"
+        android:layout_below="@+id/imageButton7"
+        android:layout_alignLeft="@+id/ChessButton"
+        android:layout_alignStart="@+id/ChessButton"
+        android:onClick="directToMathHowTo"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="How To Answer Riddles"
+        android:id="@+id/textView8"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:layout_above="@+id/imageButton8"
+        android:layout_alignLeft="@+id/textView7"
+        android:layout_alignStart="@+id/textView7"
+        android:layout_marginBottom="22dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="How To Solve Math Questions"
+        android:id="@+id/textView9"
+        android:textStyle="bold"
+        android:textSize="12dp"
+        android:layout_alignBottom="@+id/imageButton8"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="23dp" />
+</RelativeLayout>
