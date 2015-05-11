@@ -5,6 +5,7 @@ import java.io.IOException;
 
 /**
  * Created by Eldarfin on 30.04.2015.
+ * Edited by Selin
  */
 public class ChessPlay implements Play{
 
@@ -26,49 +27,43 @@ public class ChessPlay implements Play{
     //Variables
     private String[][] board;
     private TextReader reader;
-
+    private Object question, answer;
     public ChessPlay(File file) throws IOException{
 
         reader = new TextReader();
         reader.readQuestion();
         board = new String[8][8];
-
+	question = null;
+	answer = null;
         board = reader.fillBoard(board);
     }
 
-    @Override
+    
     public Object getAnswer() {
-        return reader.getAnswer();
+        return answer;
     }
 
-    @Override
+    
     public void setAnswer(Object o) {
-        reader.setAnswer((String)o);
+        answer = reader.setAnswer();
     }
 
-    @Override
     public Object getQuestion() {
-        return reader.getQuestion();
+        return question;
     }
 
-    @Override
     public void setQuestion(Object o) {
-        reader.setQuestion((String)o);
+        question = reader.setQuestion();
     }
 
-    @Override
     public boolean isTrue() {
         return getAnswer().equals(getUserInput());
     }
 
-    @Override
+    
     public Object getUserInput() {
         return null;
     }
 
-    @Override
-    public Object getQuestion(int state) {
-        reader.setqNum(state);
-        return reader.getQuestion();
-    }
+   
 }
