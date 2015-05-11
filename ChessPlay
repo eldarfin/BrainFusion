@@ -1,6 +1,7 @@
-package com.brainfusion.eldarfin.brainfusion;
+package com.computer7.can.brainfusion;
 
 import java.io.File;
+import java.io.IOException;
 
 /**
  * Created by Eldarfin on 30.04.2015.
@@ -26,38 +27,38 @@ public class ChessPlay implements Play{
     private String[][] board;
     private TextReader reader;
 
-    public ChessPlay(File file){
+    public ChessPlay(File file) throws IOException{
 
         reader = new TextReader();
-
+        reader.readQuestion();
         board = new String[8][8];
 
-        //board = reader.fillBoard(board, file);
+        board = reader.fillBoard(board);
     }
 
     @Override
     public Object getAnswer() {
-        return null;
+        return reader.getAnswer();
     }
 
     @Override
     public void setAnswer(Object o) {
-
+        reader.setAnswer((String)o);
     }
 
     @Override
     public Object getQuestion() {
-        return null;
+        return reader.getQuestion();
     }
 
     @Override
     public void setQuestion(Object o) {
-
+        reader.setQuestion((String)o);
     }
 
     @Override
     public boolean isTrue() {
-        return false;
+        return getAnswer().equals(getUserInput());
     }
 
     @Override
@@ -67,6 +68,7 @@ public class ChessPlay implements Play{
 
     @Override
     public Object getQuestion(int state) {
-        return null;
+        reader.setqNum(state);
+        return reader.getQuestion();
     }
 }
