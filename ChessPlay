@@ -7,7 +7,7 @@ import java.io.IOException;
  * Created by Eldarfin on 30.04.2015.
  * Edited by Selin
  */
-public class ChessPlay implements Play{
+public class ChessPlay{
 
     //Constants
     private final String W_PAWN = "wp";
