@@ -51,7 +51,7 @@ public class ChessPlay implements Play{
         return question;
     }
 
-    public void setQuestion(Object o) {
+    public void setQuestion() {
         question = reader.setQuestion();
     }
 
