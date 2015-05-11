@@ -1,8 +1,4 @@
 
-/**
- * @author Selin
- *
- */
 public class MathGenerator {
 
 	String 	question;
@@ -17,7 +13,18 @@ public class MathGenerator {
 	boolean hasPower1,
 			hasPower2;
 	
-	
+	public MathGenerator()
+	{
+		question = null;
+		num1 = 0;
+		num2 = 0;
+		num1Power = 0;
+		num2Power = 0;
+		operator = 0;
+		answer = 0;
+		hasPower1 = false;
+		hasPower2 = false;
+	}
 	//Easy set of questions, only addition and subtraction 
 	public String operationGeneratorEasy()
 	{
@@ -46,7 +53,12 @@ public class MathGenerator {
 		else if( operator == 2)
 			question = num1 + " x " + num2;
 		else 
+		{
+			if(num1 % num2 != 0)
+				num1 = num2*((int)(Math.random()*10));
 			question = num1 + " : " + num2;
+		}
+			
 		
 		return question;
 	}
@@ -64,9 +76,12 @@ public class MathGenerator {
 			question = num1 + " - " + num2;
 		else if( operator == 2)
 			question = num1 + " x " + num2;
-		else 
+		else
+		{ 
+			if(num1 % num2 != 0)
+				num1 = num2*((int)(Math.random()*10));
 			question = num1 + " : " + num2;
-		
+		}
 		return question;
 	}
 	
@@ -111,12 +126,16 @@ public class MathGenerator {
 			else if( operator == 2)
 				question = num1 + " x " + num2;
 			else 
+			{
+				if(num1 % num2 != 0)
+					num1 = num2*((int)(Math.random()*10));
 				question = num1 + " : " + num2;
+			}
 		}
 		return question;
 	}
 	
-	public boolean returnAnswer(int answerToTheQuestion)
+	public int returnAnswer()
 	{
 		int a = 0,
 			b = 0;
@@ -168,9 +187,8 @@ public class MathGenerator {
 			else 
 				answer = a / b;
 		}
-		if( answer == answerToTheQuestion )
-			return true;
-		return false;
+		return answer;
 		
 	}
 }
+
